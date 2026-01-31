@@ -32,6 +32,9 @@ RUN --mount=type=cache,target=/root/.cache \
   CGO_ENABLED=0 xx-go build -ldflags='-w -s' -trimpath
 
 FROM 11notes/alpine:3.23
+
+USER root
+
 WORKDIR /data
 
 COPY --from=backend /app/linx-server /usr/bin
